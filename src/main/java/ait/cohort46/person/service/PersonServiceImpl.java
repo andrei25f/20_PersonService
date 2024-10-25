@@ -37,21 +37,23 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    @Transactional
     public PersonDto updatePersonName(Integer id, String name) {
         Person person = personRepository.findById(id).orElseThrow(PersonNotFoundException::new);
         if (name != null) {
             person.setName(name);
-            person = personRepository.save(person);
+            //person = personRepository.save(person); // Transactional
         }
         return modelMapper.map(person, PersonDto.class);
     }
 
     @Override
+    @Transactional
     public PersonDto updatePersonAddress(Integer id, AddressDto address) {
         Person person = personRepository.findById(id).orElseThrow(PersonNotFoundException::new);
         if (address != null) {
             person.setAddress(modelMapper.map(address, Address.class));
-            person = personRepository.save(person);
+            //person = personRepository.save(person); // Transactional
         }
         return modelMapper.map(person, PersonDto.class);
     }

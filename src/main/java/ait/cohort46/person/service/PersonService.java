@@ -21,5 +21,5 @@ public interface PersonService {
 
     PersonDto[] findPersonsBetweenAges(Integer minAge, Integer maxAge);
 
-    Iterable<CityPopulationDto> getCitiesPopulation(String city);
+    Iterable<CityPopulationDto> getCitiesPopulation();
 }

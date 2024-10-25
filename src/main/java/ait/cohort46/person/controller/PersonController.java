@@ -54,7 +54,7 @@ public class PersonController {
     }
 
     @GetMapping("/population/city")
-    public Iterable<CityPopulationDto> getCitiesPopulation(@PathVariable String city) {
-        return personService.getCitiesPopulation(city);
+    public Iterable<CityPopulationDto> getCitiesPopulation() {
+        return personService.getCitiesPopulation();
     }
 }
